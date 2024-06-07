@@ -26,16 +26,18 @@ docker build -t proxmoxguest-probe . --no-cache
 ## Dry run
 
 Available checks:
-- `xxx`
+- `proxmoxguest`
 
 Create a yaml file, for example _(test.yaml)_:
 
 ```yaml
 asset:
   name: "foo.local"
-  check: "xxx"
+  check: "proxmoxguest"
   config:
     address: "192.168.1.2"
+    node: "pve"
+    vmid: 100
 ```
 
 Run the probe with the `DRY_RUN` environment variable set the the yaml file above.
