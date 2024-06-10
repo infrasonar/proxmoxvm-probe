@@ -46,7 +46,7 @@ async def check_proxmoxguest(
     nics = vm.get('nics')
     support = vm.get('proxmox-support')
     item = {
-        'name': str(vm['vmid']),  # str
+        'name': 'guest',
         'vmid': vm['vmid'],  # int
         'balloon': vm.get('balloon'),  # int
         'cpu': vm.get('cpu'),  # float
