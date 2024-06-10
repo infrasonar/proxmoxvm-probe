@@ -42,40 +42,40 @@ async def check_proxmoxguest(
     vm = data['data']
     nics = vm.get('nics')
     item = {
-        'name': str(vm['vmid']),
+        'name': str(vm['vmid']),  # str
         # 'ha': vm['ha'],  # TODO how to interpret {managed: 0}?
-        'vmid': vm['vmid'],
-        'balloon': vm.get('balloon'),
+        'vmid': vm['vmid'],  # ???
+        'balloon': vm.get('balloon'),  # ???
         # 'ballooninfo': vm.get('ballooninfo'),  # TODO many metrics
         # 'blockstat': vm.get('blockstat'),  # TODO many metrics
-        'cpu': vm.get('cpu'),
-        'cpus': vm.get('cpus'),
-        'disk': vm.get('disk'),
-        'diskread': vm.get('diskread'),
-        'diskwrite': vm.get('diskwrite'),
-        'freemem': vm.get('freemem'),
-        'maxdisk': vm.get('maxdisk'),
-        'maxmem': vm.get('maxmem'),
-        'mem': vm.get('mem'),
-        'netin': vm.get('netin'),
-        'netout': vm.get('netout'),
-        'pid': vm.get('pid'),
+        'cpu': vm.get('cpu'),  # ???
+        'cpus': vm.get('cpus'),  # ???
+        'disk': vm.get('disk'),  # ???
+        'diskread': vm.get('diskread'),  # ???
+        'diskwrite': vm.get('diskwrite'),  # ???
+        'freemem': vm.get('freemem'),  # ???
+        'maxdisk': vm.get('maxdisk'),  # ???
+        'maxmem': vm.get('maxmem'),  # ???
+        'mem': vm.get('mem'),  # ???
+        'netin': vm.get('netin'),  # ???
+        'netout': vm.get('netout'),  # ???
+        'pid': vm.get('pid'),  # ???
         # 'proxmox-support': vm.get('proxmox-support'),  # TODO relevant?
-        'qmpstatus': vm.get('qmpstatus'),
-        'running_machine': vm.get('running-machine'),
-        'running_qemu': vm.get('running-qemu'),
-        'status': vm['status'],
-        'uptime': vm.get('uptime'),
-        'vm_name': vm.get('name'),
+        'qmpstatus': vm.get('qmpstatus'),  # ???
+        'running_machine': vm.get('running-machine'),  # ???
+        'running_qemu': vm.get('running-qemu'),  # ???
+        'status': vm['status'],  # ???
+        'uptime': vm.get('uptime'),  # ???
+        'vm_name': vm.get('name'),  # ???
     }
     state = {
         'guest': [item],
     }
     if nics is not None:
         state['nics'] = [{
-            'name': name,
-            'netin': n['netin'],
-            'netout': n['netout'],
+            'name': name,  # str
+            'netin': n['netin'],  # ???
+            'netout': n['netout'],  # ???
         } for name, n in nics.items()]
 
     return state
