@@ -1,6 +1,7 @@
 import aiohttp
 from libprobe.asset import Asset
 from libprobe.exceptions import CheckException
+from ..utils import to_percent_used
 
 
 DEFAULT_PORT = 8006
@@ -54,10 +55,7 @@ async def check_proxmoxguest(
         'disk': vm.get('disk'),  # int
         'diskread': vm.get('diskread'),  # int
         'diskwrite': vm.get('diskwrite'),  # int
-        'freemem': vm.get('freemem'),  # int
         'maxdisk': vm.get('maxdisk'),  # int
-        'maxmem': vm.get('maxmem'),  # int
-        'mem': vm.get('mem'),  # int
         'netin': vm.get('netin'),  # int
         'netout': vm.get('netout'),  # int
         'pid': vm.get('pid'),  # int
@@ -83,6 +81,10 @@ async def check_proxmoxguest(
             'max_mem': balloon.get('max_mem'),  # int
             'total_mem': balloon.get('total_mem'),  # int
             'mem_swapped_in': balloon.get('mem_swapped_in'),  # int
+            'percent_used':
+            to_percent_used(balloon.get('total_mem'), balloon.get('free_mem')),
+            'percent_used_actual':
+            to_percent_used(balloon.get('actual'), balloon.get('free_mem'))
         }]
     if blockstat is not None:
         state['blockstat'] = [{
