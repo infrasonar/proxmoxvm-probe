@@ -55,7 +55,15 @@ async def check_proxmoxguest(
         'disk': vm.get('disk'),  # int
         'diskread': vm.get('diskread'),  # int
         'diskwrite': vm.get('diskwrite'),  # int
+        'freemem': vm.get('freemem'),  # int
         'maxdisk': vm.get('maxdisk'),  # int
+        'maxmem': vm.get('maxmem'),  # int
+        'mem': vm.get('mem'),  # int
+        'mem_percent_used':
+        to_percent_used(
+            vm.get('freemem', 0) + vm.get('mem', 0), vm.get('freemem')),
+        'mem_percent_used_actual':
+        to_percent_used(vm.get('maxmem'), vm.get('freemem')),
         'netin': vm.get('netin'),  # int
         'netout': vm.get('netout'),  # int
         'pid': vm.get('pid'),  # int
