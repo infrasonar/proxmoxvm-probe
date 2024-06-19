@@ -62,7 +62,7 @@ async def check_proxmoxguest(
         'mem_percent_used':
         to_percent_used(
             vm.get('freemem', 0) + vm.get('mem', 0), vm.get('freemem')),
-             # float/optional
+            # float/optional
         'mem_percent_used_actual':
         to_percent_used(vm.get('maxmem'), vm.get('freemem')),  # float/optional
         'netin': vm.get('netin'),  # int
