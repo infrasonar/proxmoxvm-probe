@@ -1,7 +1,7 @@
 import aiohttp
 from libprobe.asset import Asset
 from libprobe.exceptions import CheckException
-from ..utils import to_float, to_percent_used
+from ..utils import to_percent_used
 
 
 DEFAULT_PORT = 8006
@@ -50,7 +50,7 @@ async def check_proxmoxguest(
         'name': 'guest',
         'vmid': vm['vmid'],  # int
         'balloon': vm.get('balloon'),  # int/optional
-        'cpu': to_float(vm.get('cpu')),  # float
+        'cpu': vm.get('cpu', 0) * 100.0,  # float
         'cpus': vm.get('cpus'),  # int
         'disk': vm.get('disk'),  # int
         'diskread': vm.get('diskread'),  # int
