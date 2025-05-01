@@ -1,5 +1,5 @@
-[![CI](https://github.com/infrasonar/proxmoxguest-probe/workflows/CI/badge.svg)](https://github.com/infrasonar/proxmoxguest-probe/actions)
-[![Release Version](https://img.shields.io/github/release/infrasonar/proxmoxguest-probe)](https://github.com/infrasonar/proxmoxguest-probe/releases)
+[![CI](https://github.com/infrasonar/proxmoxvm-probe/workflows/CI/badge.svg)](https://github.com/infrasonar/proxmoxvm-probe/actions)
+[![Release Version](https://img.shields.io/github/release/infrasonar/proxmoxvm-probe)](https://github.com/infrasonar/proxmoxvm-probe/releases)
 
 # InfraSonar Proxmox Guest Probe
 
@@ -20,7 +20,7 @@ Variable            | Default                        | Description
 ## Docker build
 
 ```
-docker build -t proxmoxguest-probe . --no-cache
+docker build -t proxmoxvm-probe . --no-cache
 ```
 
 ## Config
@@ -36,21 +36,21 @@ proxmoxcluster:
     secret: 12345678-1234-1234-1234-1234567890ab
 proxmoxnode:
   use: proxmoxcluster
-proxmoxguest:
+proxmoxvm:
   use: proxmoxcluster
 ```
 
 ## Dry run
 
 Available checks:
-- `proxmoxguest`
+- `proxmoxvm`
 
 Create a yaml file, for example _(test.yaml)_:
 
 ```yaml
 asset:
   name: "foo.local"
-  check: "proxmoxguest"
+  check: "proxmoxvm"
   config:
     address: "10.0.0.1"
     node: "pve"

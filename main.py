@@ -1,13 +1,13 @@
 from libprobe.probe import Probe
-from lib.check.proxmoxguest import check_proxmoxguest
+from lib.check.proxmoxvm import check_proxmoxvm
 from lib.version import __version__ as version
 
 
 if __name__ == '__main__':
     checks = {
-        'proxmoxguest': check_proxmoxguest
+        'proxmoxvm': check_proxmoxvm
     }
 
-    probe = Probe("proxmoxguest", version, checks)
+    probe = Probe("proxmoxvm", version, checks)
 
     probe.start()

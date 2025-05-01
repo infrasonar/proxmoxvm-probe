@@ -7,7 +7,7 @@ from ..utils import to_percent_used
 DEFAULT_PORT = 8006
 
 
-async def check_proxmoxguest(
+async def check_proxmoxvm(
         asset: Asset,
         asset_config: dict,
         config: dict) -> dict:
@@ -47,7 +47,7 @@ async def check_proxmoxguest(
     nics = vm.get('nics')
     support = vm.get('proxmox-support')
     item = {
-        'name': 'guest',
+        'name': 'vm',
         'vmid': vm['vmid'],  # int
         'balloon': vm.get('balloon'),  # int
         'cpu': vm.get('cpu'),  # float
@@ -75,7 +75,7 @@ async def check_proxmoxguest(
         'vm_name': vm.get('name'),  # str
     }
     state = {
-        'guest': [item],
+        'vm': [item],
     }
     if balloon is not None:
         state['ballooninfo'] = [{

@@ -31,7 +31,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.REGISTRY }}/infrasonar/proxmoxguest-probe
+          images: ${{ env.REGISTRY }}/infrasonar/proxmoxvm-probe
 
       - name: Get the version
         id: get_version
@@ -44,5 +44,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/infrasonar/proxmoxguest-probe:${{ steps.get_version.outputs.VERSION }},ghcr.io/infrasonar/proxmoxguest-probe:unstable
+          tags: ghcr.io/infrasonar/proxmoxvm-probe:${{ steps.get_version.outputs.VERSION }},ghcr.io/infrasonar/proxmoxvm-probe:unstable
           labels: ${{ steps.meta.outputs.labels }}
