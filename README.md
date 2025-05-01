@@ -1,7 +1,7 @@
 [![CI](https://github.com/infrasonar/proxmoxvm-probe/workflows/CI/badge.svg)](https://github.com/infrasonar/proxmoxvm-probe/actions)
 [![Release Version](https://img.shields.io/github/release/infrasonar/proxmoxvm-probe)](https://github.com/infrasonar/proxmoxvm-probe/releases)
 
-# InfraSonar Proxmox Guest Probe
+# InfraSonar Proxmox VM Probe
 
 ## Environment variable
 
