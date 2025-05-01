@@ -110,7 +110,7 @@ async def check_vm(
     if ha is not None:
         state['ha'] = [{
             'name': 'ha',
-            'managed': ha.get('managed'),  # int
+            'managed': bool(ha.get('managed')),  # bool
         }]
     if support is not None:
         state['proxmox_support'] = [{
