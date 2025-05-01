@@ -49,27 +49,28 @@ async def check_proxmoxvm(
     item = {
         'name': 'vm',
         'vmid': vm['vmid'],  # int
-        'balloon': vm.get('balloon'),  # int
-        'cpu': vm.get('cpu'),  # float
+        'balloon': vm.get('balloon'),  # int/optional
+        'cpu': vm.get('cpu', 0) * 100.0,  # float
         'cpus': vm.get('cpus'),  # int
         'disk': vm.get('disk'),  # int
         'diskread': vm.get('diskread'),  # int
         'diskwrite': vm.get('diskwrite'),  # int
-        'freemem': vm.get('freemem'),  # int
+        'freemem': vm.get('freemem'),  # int/optional
         'maxdisk': vm.get('maxdisk'),  # int
         'maxmem': vm.get('maxmem'),  # int
         'mem': vm.get('mem'),  # int
         'mem_percent_used':
         to_percent_used(
             vm.get('freemem', 0) + vm.get('mem', 0), vm.get('freemem')),
+            # float/optional
         'mem_percent_used_actual':
-        to_percent_used(vm.get('maxmem'), vm.get('freemem')),
+        to_percent_used(vm.get('maxmem'), vm.get('freemem')),  # float/optional
         'netin': vm.get('netin'),  # int
         'netout': vm.get('netout'),  # int
-        'pid': vm.get('pid'),  # int
+        'pid': vm.get('pid'),  # int/optional
         'qmpstatus': vm.get('qmpstatus'),  # str
-        'running_machine': vm.get('running-machine'),  # str
-        'running_qemu': vm.get('running-qemu'),  # str
+        'running_machine': vm.get('running-machine'),  # str/optional
+        'running_qemu': vm.get('running-qemu'),  # str/optional
         'status': vm['status'],  # str
         'uptime': vm.get('uptime'),  # int
         'vm_name': vm.get('name'),  # str
