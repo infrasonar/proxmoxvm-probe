@@ -17,7 +17,7 @@ async def check_vm(
     nics = vm.get('nics')
     support = vm.get('proxmox-support')
     item = {
-        'name': 'vm',
+        'name': vm.get('name'),  # str
         'vmid': vm['vmid'],  # int
         'balloon': vm.get('balloon'),  # int/optional
         'cpu': vm.get('cpu', 0) * 100.0,  # float
@@ -43,7 +43,6 @@ async def check_vm(
         'running_qemu': vm.get('running-qemu'),  # str/optional
         'status': vm['status'],  # str
         'uptime': vm.get('uptime'),  # int
-        'vm_name': vm.get('name'),  # str
     }
     state = {
         'vm': [item],
