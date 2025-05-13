@@ -29,19 +29,13 @@ async def check_vm(
         'maxdisk': vm.get('maxdisk'),  # int
         'maxmem': vm.get('maxmem'),  # int
         'mem': vm.get('mem'),  # int
-        'mem_percent_used':
-        to_percent_used(
-            vm.get('freemem', 0) + vm.get('mem', 0), vm.get('freemem')),
-            # float/optional
-        'mem_percent_used_actual':
-        to_percent_used(vm.get('maxmem'), vm.get('freemem')),  # float/optional
         'netin': vm.get('netin'),  # int
         'netout': vm.get('netout'),  # int
         'pid': vm.get('pid'),  # int/optional
         'qmpstatus': vm.get('qmpstatus'),  # str
         'running_machine': vm.get('running-machine'),  # str/optional
         'running_qemu': vm.get('running-qemu'),  # str/optional
-        'status': vm['status'],  # str
+        'status': vm['status'],  # str (enum: stopped | running)
         'uptime': vm.get('uptime'),  # int
     }
     state = {
