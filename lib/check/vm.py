@@ -19,6 +19,7 @@ async def check_vm(
     item = {
         'name': vm.get('name'),  # str
         'vmid': vm['vmid'],  # int
+        'agent': bool(vm.get('agent')),  # bool
         'balloon': vm.get('balloon'),  # int/optional
         'cpu': vm.get('cpu', 0) * 100.0,  # float
         'cpus': vm.get('cpus'),  # int
