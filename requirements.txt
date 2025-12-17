@@ -1,2 +1,2 @@
-aiohttp==3.11.18
-libprobe==0.3.3
+aiohttp==3.13.2
+libprobe==2.0.2
