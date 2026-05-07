@@ -1,14 +1,13 @@
 import asyncio
 import aiohttp
 import logging
-from typing import Dict
 from libprobe.asset import Asset
 from libprobe.exceptions import CheckException
 from .connector import get_connector
 
 
 DEFAULT_PORT = 8006
-VMID_MAP: Dict[int, str] = {}
+VMID_MAP: dict[int, str] = {}
 
 
 async def _update_vmid_map(
