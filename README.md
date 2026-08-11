@@ -43,14 +43,15 @@ proxmoxvm:
 ## Dry run
 
 Available checks:
-- `proxmoxvm`
+- `firewall`
+- `vm`
 
 Create a yaml file, for example _(test.yaml)_:
 
 ```yaml
 asset:
   name: "foo.local"
-  check: "proxmoxvm"
+  check: "vm"
   config:
     address: "10.0.0.1"
     node: "pve"
