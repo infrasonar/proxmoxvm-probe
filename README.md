@@ -43,6 +43,7 @@ proxmoxvm:
 ## Dry run
 
 Available checks:
+- `config`
 - `firewall`
 - `vm`
 
